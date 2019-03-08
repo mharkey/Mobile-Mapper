@@ -8,11 +8,13 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     let barringtonAnnotaion = MKPointAnnotation()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,8 @@ class ViewController: UIViewController {
         barringtonAnnotaion.coordinate = coordinate
         barringtonAnnotaion.title = "Barrington High School"
         mapView.addAnnotation(barringtonAnnotaion)
+        locationManager.requestWhenInUseAuthorization()
+        mapView.showsUserLocation = true
     }
 
 
